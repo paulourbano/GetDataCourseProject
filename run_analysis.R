@@ -62,7 +62,7 @@ filteredDF = mergeDF[,c(which(variablesMean | variablesStd), 562, 563)]
 names(filteredDF) = c(as.character(features$V2[which(variablesMean | variablesStd)]), "Activity.Label", "Subject")
 
 # Save the first tidy data frame
-save(filteredDF, file="GetData-Project-FirstDataFrame.Rda")
+write.table(filteredDF, file = "GetData-Project-FirstDataFrame.txt", sep = ",", col.names = colnames(filteredDF))
 
 ## Requirement 5: Creates a second, independent tidy data set with the average of each variable 
 ## for each activity and each subject.
@@ -98,4 +98,4 @@ finalDF[,563] = as.numeric(finalDF[,563])
 names(finalDF) = c(as.character(features$V2), "Activity.Label", "Subject")
 
 # Save the final data frame
-save(finalDF, file="GetData-Project-FinalDataFrame.Rda")
+write.table(finalDF, file = "GetData-Project-FinalDataFrame.txt", sep = ",", col.names = colnames(finalDF))
